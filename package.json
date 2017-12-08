@@ -7,7 +7,7 @@
   "main": "index.html",
   "scripts": {
     "seed": "node scripts/seed.js",
-    "server": "node server.js"
+    "server": "node scripts/server.js"
   },
   "dependencies": {
     "express": "^4.16.2",
