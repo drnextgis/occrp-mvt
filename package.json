@@ -1,0 +1,17 @@
+{
+  "name": "occrp-mvt",
+  "version": "0.0.0",
+  "description": "Slicing GeoJSON data into vector tiles",
+  "author": "NextGIS",
+  "license": "MIT",
+  "main": "index.html",
+  "scripts": {
+    "seed": "node scripts/seed.js",
+    "server": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "geojson-extent": "^0.3.2",
+    "geojson2mvt": "0.0.4"
+  }
+}
