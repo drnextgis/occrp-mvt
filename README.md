@@ -2,9 +2,14 @@ Usage
 =====
 
     $ npm install
-    $ npm run seed
-    $ npm run server
 
+Run vector tiling:
+
+    $ npm run seed
+    
+Run simple server to check results:
+
+    $ npm run server
 
 **Warning:** If you just downloaded source files then they have to be transformed 
 into EPSG:4326 before starting the seeding process. You can do it with ogr2ogr:
