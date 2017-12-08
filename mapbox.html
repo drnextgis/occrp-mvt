@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Testing Map Mapbox</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'undefined';
+var simple = {
+    "version": 8,
+    "sources": {
+        "osm": {
+            "type": "raster",
+            "tiles": [
+                "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            ],
+            "tileSize": 256
+        },
+        "zones": {
+            "type": "vector",
+            "tiles": ["http://localhost:3000/cache/{z}/{x}/{y}.mvt"]
+        }
+    },
+    "layers": [{
+        "id": "openstreetmap",
+        "source": "osm",
+        "type": "raster"
+    }, {
+        "id": "buffers",
+        "type": "fill",
+        "source": "zones",
+        "source-layer": "cities",
+        "paint": {
+            "fill-color": "#9431a3",
+            "fill-opacity": 0.4
+        },
+        "minzoom": 10,
+        "maxzoom": 16
+    }]
+};
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: simple,
+    zoom: 11,
+    center: [82.934, 55.041]
+});
+
+map.addControl(new mapboxgl.NavigationControl());
+</script>
+
+</body>
+</html>
