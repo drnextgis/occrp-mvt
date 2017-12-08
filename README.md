@@ -17,6 +17,8 @@ Run simple server to check results:
 
     $ npm run server
 
+Open [http://localhost:3000](http://localhost:3000)
+
 **Warning:** If you downloaded new source files don't forget to transform them 
 into EPSG:4326 before starting the seeding process. You can do it with ogr2ogr:
 
