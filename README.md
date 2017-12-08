@@ -8,6 +8,10 @@ Install everything:
 Run vector tiling:
 
     $ npm run seed
+
+if it doesn't run complaining node doesn't exist, do this first:
+
+    $ sudo apt install nodejs-legacy
     
 Run simple server to check results:
 
