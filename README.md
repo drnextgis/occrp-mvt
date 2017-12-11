@@ -25,5 +25,8 @@ into EPSG:4326 before starting the seeding process. You can do it with ogr2ogr:
     $ ogr2ogr -f GeoJSON -s_srs EPSG:3857 -t_srs EPSG:4326 zones.json zones_source.json
     $ ogr2ogr -f GeoJSON -s_srs EPSG:3857 -t_srs EPSG:4326 cities.json cities_source.json
 
+You can transform polygonal data into linear if needed:
+
+    $ ogr2ogr -f GeoJSON cities_line.json cities.json -nlt MULTILINESTRING
 
 ![Screenshot](screenshot.png)
