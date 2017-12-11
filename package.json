@@ -1,6 +1,6 @@
 {
   "name": "occrp-mvt",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Slicing GeoJSON data into vector tiles",
   "author": "NextGIS",
   "license": "MIT",
@@ -12,6 +12,10 @@
   "dependencies": {
     "express": "^4.16.2",
     "geojson-extent": "^0.3.2",
-    "geojson2mvt": "0.0.4"
+    "geojson2mvt": "git://github.com/NYCPlanning/geojson2mvt.git#19f8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nextgis/occrp-mvt.git"
   }
 }

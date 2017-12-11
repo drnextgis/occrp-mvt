@@ -10,19 +10,42 @@
   <body>
     <div id="map" class="map"></div>
     <script>
-      var style = new ol.style.Style({
+      var zstyle = new ol.style.Style({
         fill: new ol.style.Fill({
           color: 'rgba(148, 49, 163, 0.4)'
+        })
+      });
+
+      var cstyle = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+          color: 'rgba(100, 100, 100, 1)',
+          lineDash: [.5, 5],
+          width: 2
         })
       });
 
       var zones = new ol.layer.VectorTile({
         renderMode: 'hybrid',
         source: new ol.source.VectorTile({
-          format: new ol.format.MVT(),
+          format: new ol.format.MVT({
+            layers: ['zones']
+          }),
           url: 'http://localhost:3000/cache/{z}/{x}/{y}.mvt'
         }),
-        style: style,
+        style: zstyle,
+        minResolution: 2,
+        maxResolution: 80
+      });
+
+      var cities = new ol.layer.VectorTile({
+        renderMode: 'hybrid',
+        source: new ol.source.VectorTile({
+          format: new ol.format.MVT({
+            layers: ['cities']
+          }),
+          url: 'http://localhost:3000/cache/{z}/{x}/{y}.mvt'
+        }),
+        style: cstyle,
         minResolution: 2,
         maxResolution: 80
       });
@@ -33,7 +56,8 @@
             source: new ol.source.OSM()
           }),
           // vector tiles
-          zones
+          zones,
+          cities
         ],
         target: 'map',
         view: new ol.View({

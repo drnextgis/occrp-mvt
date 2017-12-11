@@ -23,11 +23,11 @@ var simple = {
             "type": "raster",
             "tiles": [
                 "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                "http://b.tile.openstreetmap.org/{z}/{x}/{y}.png"
             ],
             "tileSize": 256
         },
-        "zones": {
+        "mvt": {
             "type": "vector",
             "tiles": ["http://localhost:3000/cache/{z}/{x}/{y}.mvt"]
         }
@@ -39,11 +39,23 @@ var simple = {
     }, {
         "id": "buffers",
         "type": "fill",
-        "source": "zones",
-        "source-layer": "cities",
+        "source": "mvt",
+        "source-layer": "zones",
         "paint": {
             "fill-color": "#9431a3",
             "fill-opacity": 0.4
+        },
+        "minzoom": 10,
+        "maxzoom": 16
+    }, {
+        "id": "cities",
+        "type": "line",
+        "source": "mvt",
+        "source-layer": "cities",
+        "paint": {
+            "line-color": "#646464",
+            "line-opacity": 1,
+            "line-width": 2
         },
         "minzoom": 10,
         "maxzoom": 16
