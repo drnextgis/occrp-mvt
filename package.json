@@ -14,8 +14,5 @@
     "geojson-extent": "^0.3.2",
     "geojson2mvt": "git://github.com/NYCPlanning/geojson2mvt.git#19f8"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nextgis/occrp-mvt.git"
-  }
+  "repository": "github:nextgis/occrp-mvt"
 }
